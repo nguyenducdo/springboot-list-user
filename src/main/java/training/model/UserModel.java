@@ -1,13 +1,24 @@
 package training.model;
 
-import training.entity.UserEntity;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class UserModel {
 	
 	private Long id;
+	
+	@Min(value = 1, message = "Username is invalid")
+	@Max(value = 20, message = "Username max is 20 characters")
 	private String username;
+	
+	@Size(min = 6, max = 20, message = "Password min is 6, max is 20 characters")
 	private String password;
-	private UserEntity.Role role;
+	
+	private String role;
 	
 	public Long getId() {
 		return id;
@@ -27,10 +38,11 @@ public class UserModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public UserEntity.Role getRole() {
+	public String getRole() {
 		return role;
 	}
-	public void setRole(UserEntity.Role role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
+	
 }

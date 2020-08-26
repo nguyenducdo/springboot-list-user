@@ -46,7 +46,9 @@ public class UserEntity {
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		if (username != null && !username.isEmpty()) {
+			this.username = username;
+		}
 	}
 
 	public String getPassword() {
@@ -54,7 +56,9 @@ public class UserEntity {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		if (password != null && !password.isEmpty()) {
+			this.password = password;
+		}
 	}
 
 	public Role getRole() {
