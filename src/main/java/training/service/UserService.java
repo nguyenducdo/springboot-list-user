@@ -39,6 +39,15 @@ public class UserService {
 			return null;
 		}
 	}
+	
+	public UserModel findByUsername(String username) {
+		Optional<UserEntity> opEntity = userRepository.findByUsername(username);
+		if (opEntity.isPresent()) {
+			return converter.toModel(opEntity.get());
+		} else {
+			return null;
+		}
+	}
 
 	public UserModel regist(UserModel model) {
 		model.setPassword(AppUtil.md5(model.getPassword()));

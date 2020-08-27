@@ -11,8 +11,7 @@ public class UserModel {
 	
 	private Long id;
 	
-	@Min(value = 1, message = "Username is invalid")
-	@Max(value = 20, message = "Username max is 20 characters")
+	@Size(min = 1, max = 20, message = "Username is required, max is 20 characters")
 	private String username;
 	
 	@Size(min = 6, max = 20, message = "Password min is 6, max is 20 characters")
